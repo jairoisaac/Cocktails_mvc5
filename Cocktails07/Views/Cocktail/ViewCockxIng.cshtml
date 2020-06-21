@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Cocktails07.Models.Ingredient>
+
+@*<table>
+    <tr>
+        @foreach (var item in Model) {
+            <td id=@item.Name>
+                @Html.DisplayFor(modelItem => item.Amount)
+                <br />
+                @Html.DisplayFor(modelItem => item.Name)
+                <br />
+                <img src="@Url.MyPictureContent(item.Name,"bigger")" alt="" width="73" height="73" />
+                <br />
+            </td>
+}
+    </tr>
+</table>*@
+@Html.TableCocktail("Wath ever", Model.ToList(), "xxx", "feauture",6)

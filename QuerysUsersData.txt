@@ -1,0 +1,34 @@
+SELECT * 
+  FROM syscolumns 
+ WHERE id=OBJECT_ID('userusage') 
+
+select CAST(dateTimeUpdate AS date) from userusage 
+
+select CONVERT(VARCHAR(10), dateTimeUpdate , 111) from userusage  ******** good RESULT
+
+select CONVERT(VARCHAR(10), dateTimeUpdate,111) from userusage GROUP BY CONVERT(VARCHAR(10), dateTimeUpdate,111) ******** THE BEST RESULT
+
+select CONVERT(VARCHAR(10), dateTimeUpdate,111), count(*) from userusage GROUP BY CONVERT(VARCHAR(10), dateTimeUpdate,111) 
+
+select CONVERT(VARCHAR(10), dateTimeUpdate,111),count(*) from userusage GROUP BY CONVERT(VARCHAR(10), dateTimeUpdate,111) order by CONVERT(VARCHAR(10), dateTimeUpdate,111)  
+
+select CONVERT(VARCHAR(10), dateTimeUpdate,111),count(*) from userusage GROUP BY CONVERT(VARCHAR(10), dateTimeUpdate,111) order by count(*) 
+
+UPDATE Liquor
+SET Name = 'Gin'
+WHERE Id = 2
+
+SELECT COUNT(id)  
+FROM stats  
+WHERE YEAR(record_date) = 2009  
+GROUP BY MONTH(record_date)
+
+SELECT COUNT(id),MONTH(dateTimeUpdate)  
+FROM userusage  
+GROUP BY MONTH(dateTimeUpdate)
+
+INSERT INTO Category (Name)
+VALUES ('Basic')
+
+UPDATE Cocktail
+SET CategoryId = 1

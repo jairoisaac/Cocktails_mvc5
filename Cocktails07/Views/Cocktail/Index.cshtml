@@ -1,0 +1,54 @@
+﻿@model Cocktails07.Models.CocktailSumary
+@{
+    ViewBag.Title = "Cocktails";
+}
+<script type="text/javascript">
+    //$(function () {
+    //    var mCocktailId = "";
+    //    $('#Cocktails').change(function () {
+    //         mCocktailId = $('#Cocktails option:selected').val();
+    //        var myGetit = new GetACockIng(mCocktailId);
+    //        myGetit.GetIt;
+    //        $('#EraseMe').attr('href', '/Cocktail/Delete/' + mCocktailId);
+    //        $('#EditMe').click(function () {
+    //            EditCocktail(mCocktailId);
+    //        });
+    //    });
+    //});
+    $(function () {
+        var mCocktailId = "";
+        $('#Cocktails').click(function () {
+             mCocktailId = $('#Cocktails option:selected').val();
+            var myGetit = new GetACockIng(mCocktailId);
+            myGetit.GetIt;
+            $('#EraseMe').attr('href', '/Cocktail/Delete/' + mCocktailId);
+            $('#EditMe').click(function () {
+                EditCocktail(mCocktailId);
+            });
+        });
+    });
+</script>
+<h2>Cocktails</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+        <a id='EraseMe' href="javascript:void(0)">
+        Delete
+        </a>
+        </p>
+<p>
+        <a id='EditMe' href="javascript:void(0)">
+        Edit
+        </a>
+</p>
+ 
+
+<p>
+@Html.DropDownList("Cocktails")
+</p>
+
+@*<div id="CockEdit" style="position:absolute; top:230px;left:950px;"></div>
+<div id="CockDescription" style="position:absolute; top:230px;left:550px"></div>*@
+<div id="CockEdit" ></div>
+<div id="CockDescription"></div>

@@ -1,0 +1,19 @@
+﻿<table>
+<tr>
+@foreach (var item in Model)
+{
+    <a href="~/Views/Liquor/Index.cshtml">~/Views/Liquor/Index.cshtml</a>
+    <td>
+        @Html.ActionImage(@Url.MyPictureContent(item.Name, "bigger"), "Liquors", null, "Details", "Liquor", new { id = item.Id })
+    </td>
+}
+</tr>
+<tr>
+@foreach (var item in Model) {
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+}
+</tr>
+
+</table>

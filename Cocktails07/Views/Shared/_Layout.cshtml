@@ -1,0 +1,97 @@
+@using Cocktails07
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+@*        <meta name="viewport" content="width=device-width" />*@
+        <meta name="description" content="Graphic turorial to remember or learn how to make basic cocktails." />
+@*        The last line is guilty of modifying the screen when it is a mobil device*@
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @{String MyControlTask = "";}
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper"><div class="float-left">
+    <p class="site-title">@Html.ActionLink("Graphic Cocktails", "Index", "Home")</p>
+</div>
+<div class="float-right">
+    @*<section id="login">
+        @Html.Partial("_LoginPartial")
+    </section>*@
+    @*The last three lines are very important they will allow me to login and modify the data *@
+    <nav>
+        <ul id="menu">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </ul>
+    </nav>
+    <table class="center">
+        @*@if (User.IsInRole("Administrator"))
+        {
+            MyControlTask = "Index";
+        }
+        else*@
+        @{
+            MyControlTask = "IndexComponent";
+        }
+        <tr>
+            @*                                <td>@Html.ActionImage("../../Images/Liquors_bigger.png","Liquors",null,"IndexComponent","Liquor",null)</td>*@
+            <td>@Html.ActionImage("/Images/Liquors_bigger.png", "Liquors", null, MyControlTask, "Liquor", null)</td>
+            <td>@Html.ActionImage("/Images/Cordials_bigger.png", "Cordials", null, MyControlTask, "Cordial", null)</td>
+            <td>@Html.ActionImage("/Images/NoAlcohols_bigger.png", "NoAlcohols", null, MyControlTask, "NoAlcohol", null)</td>
+            <td>@Html.ActionImage("/Images/Garnishes_bigger.png", "Garnishes", null, MyControlTask, "Garnish", null)</td>
+            <td>@Html.ActionImage("/Images/Glasses_bigger.png", "Glasses", null, MyControlTask, "Glass", null)</td>
+            <td>@Html.ActionImage("/Images/Processes_bigger.png", "Processes", null, MyControlTask, "Process", null)</td>
+            <td>@Html.ActionImage("/Images/TipJar.png", "Tip drink4bars", null, "Index", "Paypal", null)</td>
+            @*<div id="paypalDiv">
+                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                        <fieldset>
+                            <p class="inline-small-label" style="padding-top: 7px;"><label for="device-id"><span>User ID</span></label></p>
+
+                            <input id="custom" class="full-width" type="text" name="custom" value=""> <input class="full-width" type="hidden" name="business" value="jairomillan-facilitator@yahoo.com"> <input type="hidden" name="cmd" value="_xclick"> <input type="hidden" name="item_name" value="credits"> <input type="hidden" name="item_number" value="40"> <input type="hidden" name="amount" value="2.95"> <input type="hidden" name="no_shipping" value="1"> <input type="hidden" name="return" value="http://49444/payments"> <input type="hidden" name="notify_url" value="https://localhost:44301/payments/ipn"><button class="btn btn-primary submit-button" type="submit">Pay with PayPal</button>
+                        </fieldset>
+                    </form>
+                </div>*@
+        </tr>
+        <tr>
+            <td>By Liquors</td>
+            <td>By Cordials</td>
+            <td>By Complements</td>
+            <td>By Garnishes</td>
+            <td>By Glasses</td>
+            <td>By Ritual</td>
+            <td>Tip Jar</td>
+        </tr>
+    </table>
+</div>
+
+        </div>
+        </header>
+        <div id="body">
+            @*@if (!User.IsInRole("Payed"))
+            { 
+                <div id="centerdiv">
+                <a href="/Paypal/Index"><img src="~/Images/GetProfessionalEdition.png" alt="Paymenr" style="width:400px;height:50px"></a>
+            </div>
+            }*@                
+            @*@Html.ActionImage("/Images/Tip_bigger.png", "Liquors", null, "Index", "Paypal", null)*@
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div><div style="filter: alpha(opacity=0); opacity: 0; position: absolute; z-index: 1; top:-500px;">Andrea Leclair, the <a href="http://www.Replica-Guccisale.co.uk">gucci replica </a> mother of the man, who is <a href="http://www.handbagsreplica.co.uk">handbags replica</a> from British Columbia. He said she had been out of <a href="http://www.handbagslondon.co.uk">replica handbags </a> with <a href="http://www.helloreplicawatches.co.uk">replcia watches uk </a> her 44-year-old son, Kristian Lee Baxter, for <a href="http://www.replicawatchessell.co.uk"> rolex replica </a> a month, according to the report.</div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year</p>
+                </div>
+            </div>
+        </footer>
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

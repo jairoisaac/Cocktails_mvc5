@@ -1,0 +1,799 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CockTailsIngredientsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CockTail">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+          </Key>
+          <Property Name="CocktailId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GlassId" Type="bigint" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CategoryId" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CocktailCordial">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CocktailId" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CocktailGarnish">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CocktailId" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CocktailLiquor">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CocktailId" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CocktailNoAlcohol">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CocktailId" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="Amount" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CocktailProcess">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CocktailId" Type="bigint" Nullable="false" />
+          <Property Name="Id" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cordial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Garnish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Glass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Liquor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoAlcohol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Process">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="UserUsage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateTimeUpdate" Type="datetime" Nullable="false" />
+          <Property Name="CocktailId" Type="bigint" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__CockTail__Catego__5E8A0973">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="CockTail" Type="Self.CockTail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CockTail">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CockTail_Glass">
+          <End Role="Glass" Type="Self.Glass" Multiplicity="0..1" />
+          <End Role="CockTail" Type="Self.CockTail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Glass">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CockTail">
+              <PropertyRef Name="GlassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailCordial_CockTail">
+          <End Role="CockTail" Type="Self.CockTail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CocktailCordial" Type="Self.CocktailCordial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CockTail">
+              <PropertyRef Name="CocktailId" />
+            </Principal>
+            <Dependent Role="CocktailCordial">
+              <PropertyRef Name="CocktailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailCordial_Cordial">
+          <End Role="Cordial" Type="Self.Cordial" Multiplicity="1" />
+          <End Role="CocktailCordial" Type="Self.CocktailCordial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cordial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CocktailCordial">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailGarnish_CockTail">
+          <End Role="CockTail" Type="Self.CockTail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CocktailGarnish" Type="Self.CocktailGarnish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CockTail">
+              <PropertyRef Name="CocktailId" />
+            </Principal>
+            <Dependent Role="CocktailGarnish">
+              <PropertyRef Name="CocktailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailGarnish_Garnish">
+          <End Role="Garnish" Type="Self.Garnish" Multiplicity="1" />
+          <End Role="CocktailGarnish" Type="Self.CocktailGarnish" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Garnish">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CocktailGarnish">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailLiquor_CockTail">
+          <End Role="CockTail" Type="Self.CockTail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CocktailLiquor" Type="Self.CocktailLiquor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CockTail">
+              <PropertyRef Name="CocktailId" />
+            </Principal>
+            <Dependent Role="CocktailLiquor">
+              <PropertyRef Name="CocktailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailLiquor_Liquor">
+          <End Role="Liquor" Type="Self.Liquor" Multiplicity="1" />
+          <End Role="CocktailLiquor" Type="Self.CocktailLiquor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Liquor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CocktailLiquor">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailNoAlcohol_CockTail">
+          <End Role="CockTail" Type="Self.CockTail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CocktailNoAlcohol" Type="Self.CocktailNoAlcohol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CockTail">
+              <PropertyRef Name="CocktailId" />
+            </Principal>
+            <Dependent Role="CocktailNoAlcohol">
+              <PropertyRef Name="CocktailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailNoAlcohol_NoAlcohol">
+          <End Role="NoAlcohol" Type="Self.NoAlcohol" Multiplicity="1" />
+          <End Role="CocktailNoAlcohol" Type="Self.CocktailNoAlcohol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoAlcohol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CocktailNoAlcohol">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailProcess_CockTail">
+          <End Role="CockTail" Type="Self.CockTail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CocktailProcess" Type="Self.CocktailProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CockTail">
+              <PropertyRef Name="CocktailId" />
+            </Principal>
+            <Dependent Role="CocktailProcess">
+              <PropertyRef Name="CocktailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailProcess_Process">
+          <End Role="Process" Type="Self.Process" Multiplicity="1" />
+          <End Role="CocktailProcess" Type="Self.CocktailProcess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Process">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CocktailProcess">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CockTailsIngredientsModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CockTail" EntityType="Self.CockTail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CocktailCordial" EntityType="Self.CocktailCordial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CocktailGarnish" EntityType="Self.CocktailGarnish" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CocktailLiquor" EntityType="Self.CocktailLiquor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CocktailNoAlcohol" EntityType="Self.CocktailNoAlcohol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CocktailProcess" EntityType="Self.CocktailProcess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cordial" EntityType="Self.Cordial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Garnish" EntityType="Self.Garnish" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Glass" EntityType="Self.Glass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Liquor" EntityType="Self.Liquor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoAlcohol" EntityType="Self.NoAlcohol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Process" EntityType="Self.Process" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserUsage" EntityType="Self.UserUsage" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CockTail__Catego__5E8A0973" Association="Self.FK__CockTail__Catego__5E8A0973">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="CockTail" EntitySet="CockTail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CockTail_Glass" Association="Self.FK_CockTail_Glass">
+            <End Role="Glass" EntitySet="Glass" />
+            <End Role="CockTail" EntitySet="CockTail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailCordial_CockTail" Association="Self.FK_CocktailCordial_CockTail">
+            <End Role="CockTail" EntitySet="CockTail" />
+            <End Role="CocktailCordial" EntitySet="CocktailCordial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailCordial_Cordial" Association="Self.FK_CocktailCordial_Cordial">
+            <End Role="Cordial" EntitySet="Cordial" />
+            <End Role="CocktailCordial" EntitySet="CocktailCordial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailGarnish_CockTail" Association="Self.FK_CocktailGarnish_CockTail">
+            <End Role="CockTail" EntitySet="CockTail" />
+            <End Role="CocktailGarnish" EntitySet="CocktailGarnish" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailGarnish_Garnish" Association="Self.FK_CocktailGarnish_Garnish">
+            <End Role="Garnish" EntitySet="Garnish" />
+            <End Role="CocktailGarnish" EntitySet="CocktailGarnish" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailLiquor_CockTail" Association="Self.FK_CocktailLiquor_CockTail">
+            <End Role="CockTail" EntitySet="CockTail" />
+            <End Role="CocktailLiquor" EntitySet="CocktailLiquor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailLiquor_Liquor" Association="Self.FK_CocktailLiquor_Liquor">
+            <End Role="Liquor" EntitySet="Liquor" />
+            <End Role="CocktailLiquor" EntitySet="CocktailLiquor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailNoAlcohol_CockTail" Association="Self.FK_CocktailNoAlcohol_CockTail">
+            <End Role="CockTail" EntitySet="CockTail" />
+            <End Role="CocktailNoAlcohol" EntitySet="CocktailNoAlcohol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailNoAlcohol_NoAlcohol" Association="Self.FK_CocktailNoAlcohol_NoAlcohol">
+            <End Role="NoAlcohol" EntitySet="NoAlcohol" />
+            <End Role="CocktailNoAlcohol" EntitySet="CocktailNoAlcohol" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailProcess_CockTail" Association="Self.FK_CocktailProcess_CockTail">
+            <End Role="CockTail" EntitySet="CockTail" />
+            <End Role="CocktailProcess" EntitySet="CocktailProcess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailProcess_Process" Association="Self.FK_CocktailProcess_Process">
+            <End Role="Process" EntitySet="Process" />
+            <End Role="CocktailProcess" EntitySet="CocktailProcess" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CockTailsIngredientsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CockTailsIngredientsEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CockTails" EntityType="CockTailsIngredientsModel.CockTail" />
+          <EntitySet Name="CocktailCordials" EntityType="CockTailsIngredientsModel.CocktailCordial" />
+          <EntitySet Name="CocktailLiquors" EntityType="CockTailsIngredientsModel.CocktailLiquor" />
+          <EntitySet Name="CocktailNoAlcohols" EntityType="CockTailsIngredientsModel.CocktailNoAlcohol" />
+          <EntitySet Name="Cordials" EntityType="CockTailsIngredientsModel.Cordial" />
+          <EntitySet Name="Garnishes" EntityType="CockTailsIngredientsModel.Garnish" />
+          <EntitySet Name="Glasses" EntityType="CockTailsIngredientsModel.Glass" />
+          <EntitySet Name="Liquors" EntityType="CockTailsIngredientsModel.Liquor" />
+          <EntitySet Name="NoAlcohols" EntityType="CockTailsIngredientsModel.NoAlcohol" />
+          <EntitySet Name="Processes" EntityType="CockTailsIngredientsModel.Process" />
+          <EntitySet Name="sysdiagrams" EntityType="CockTailsIngredientsModel.sysdiagram" />
+          <AssociationSet Name="FK_CockTail_Glass" Association="CockTailsIngredientsModel.FK_CockTail_Glass">
+            <End Role="Glass" EntitySet="Glasses" />
+            <End Role="CockTail" EntitySet="CockTails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailCordial_CockTail" Association="CockTailsIngredientsModel.FK_CocktailCordial_CockTail">
+            <End Role="CockTail" EntitySet="CockTails" />
+            <End Role="CocktailCordial" EntitySet="CocktailCordials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailLiquor_CockTail" Association="CockTailsIngredientsModel.FK_CocktailLiquor_CockTail">
+            <End Role="CockTail" EntitySet="CockTails" />
+            <End Role="CocktailLiquor" EntitySet="CocktailLiquors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailNoAlcohol_CockTail" Association="CockTailsIngredientsModel.FK_CocktailNoAlcohol_CockTail">
+            <End Role="CockTail" EntitySet="CockTails" />
+            <End Role="CocktailNoAlcohol" EntitySet="CocktailNoAlcohols" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailCordial_Cordial" Association="CockTailsIngredientsModel.FK_CocktailCordial_Cordial">
+            <End Role="Cordial" EntitySet="Cordials" />
+            <End Role="CocktailCordial" EntitySet="CocktailCordials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailLiquor_Liquor" Association="CockTailsIngredientsModel.FK_CocktailLiquor_Liquor">
+            <End Role="Liquor" EntitySet="Liquors" />
+            <End Role="CocktailLiquor" EntitySet="CocktailLiquors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CocktailNoAlcohol_NoAlcohol" Association="CockTailsIngredientsModel.FK_CocktailNoAlcohol_NoAlcohol">
+            <End Role="NoAlcohol" EntitySet="NoAlcohols" />
+            <End Role="CocktailNoAlcohol" EntitySet="CocktailNoAlcohols" />
+          </AssociationSet>
+          <AssociationSet Name="CocktailGarnish" Association="CockTailsIngredientsModel.CocktailGarnish">
+            <End Role="CockTail" EntitySet="CockTails" />
+            <End Role="Garnish" EntitySet="Garnishes" />
+          </AssociationSet>
+          <EntitySet Name="UserUsages" EntityType="CockTailsIngredientsModel.UserUsage" />
+          <AssociationSet Name="CocktailProcess" Association="CockTailsIngredientsModel.CocktailProcess">
+            <End Role="CockTail" EntitySet="CockTails" />
+            <End Role="Process" EntitySet="Processes" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="CockTailsIngredientsModel.Category" />
+          <AssociationSet Name="FK__CockTail__Catego__5E8A0973" Association="CockTailsIngredientsModel.FK__CockTail__Catego__5E8A0973">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="CockTail" EntitySet="CockTails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CockTail">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+          </Key>
+          <Property Name="CocktailId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="GlassId" Type="Int64" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Glass" Relationship="CockTailsIngredientsModel.FK_CockTail_Glass" FromRole="CockTail" ToRole="Glass" />
+          <NavigationProperty Name="CocktailCordials" Relationship="CockTailsIngredientsModel.FK_CocktailCordial_CockTail" FromRole="CockTail" ToRole="CocktailCordial" />
+          <NavigationProperty Name="CocktailLiquors" Relationship="CockTailsIngredientsModel.FK_CocktailLiquor_CockTail" FromRole="CockTail" ToRole="CocktailLiquor" />
+          <NavigationProperty Name="CocktailNoAlcohols" Relationship="CockTailsIngredientsModel.FK_CocktailNoAlcohol_CockTail" FromRole="CockTail" ToRole="CocktailNoAlcohol" />
+          <NavigationProperty Name="Garnishes" Relationship="CockTailsIngredientsModel.CocktailGarnish" FromRole="CockTail" ToRole="Garnish" />
+          <NavigationProperty Name="Processes" Relationship="CockTailsIngredientsModel.CocktailProcess" FromRole="CockTail" ToRole="Process" />
+          <Property Name="CategoryId" Type="Int64" />
+          <NavigationProperty Name="Category" Relationship="CockTailsIngredientsModel.FK__CockTail__Catego__5E8A0973" FromRole="CockTail" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="CocktailCordial">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CocktailId" Type="Int64" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Amount" Type="Single" Nullable="false" />
+          <NavigationProperty Name="CockTail" Relationship="CockTailsIngredientsModel.FK_CocktailCordial_CockTail" FromRole="CocktailCordial" ToRole="CockTail" />
+          <NavigationProperty Name="Cordial" Relationship="CockTailsIngredientsModel.FK_CocktailCordial_Cordial" FromRole="CocktailCordial" ToRole="Cordial" />
+        </EntityType>
+        <EntityType Name="CocktailLiquor">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CocktailId" Type="Int64" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Amount" Type="Single" Nullable="false" />
+          <NavigationProperty Name="CockTail" Relationship="CockTailsIngredientsModel.FK_CocktailLiquor_CockTail" FromRole="CocktailLiquor" ToRole="CockTail" />
+          <NavigationProperty Name="Liquor" Relationship="CockTailsIngredientsModel.FK_CocktailLiquor_Liquor" FromRole="CocktailLiquor" ToRole="Liquor" />
+        </EntityType>
+        <EntityType Name="CocktailNoAlcohol">
+          <Key>
+            <PropertyRef Name="CocktailId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="CocktailId" Type="Int64" Nullable="false" />
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="Amount" Type="Single" Nullable="false" />
+          <NavigationProperty Name="CockTail" Relationship="CockTailsIngredientsModel.FK_CocktailNoAlcohol_CockTail" FromRole="CocktailNoAlcohol" ToRole="CockTail" />
+          <NavigationProperty Name="NoAlcohol" Relationship="CockTailsIngredientsModel.FK_CocktailNoAlcohol_NoAlcohol" FromRole="CocktailNoAlcohol" ToRole="NoAlcohol" />
+        </EntityType>
+        <EntityType Name="Cordial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CocktailCordials" Relationship="CockTailsIngredientsModel.FK_CocktailCordial_Cordial" FromRole="Cordial" ToRole="CocktailCordial" />
+        </EntityType>
+        <EntityType Name="Garnish">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CockTails" Relationship="CockTailsIngredientsModel.CocktailGarnish" FromRole="Garnish" ToRole="CockTail" />
+        </EntityType>
+        <EntityType Name="Glass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CockTails" Relationship="CockTailsIngredientsModel.FK_CockTail_Glass" FromRole="Glass" ToRole="CockTail" />
+        </EntityType>
+        <EntityType Name="Liquor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CocktailLiquors" Relationship="CockTailsIngredientsModel.FK_CocktailLiquor_Liquor" FromRole="Liquor" ToRole="CocktailLiquor" />
+        </EntityType>
+        <EntityType Name="NoAlcohol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CocktailNoAlcohols" Relationship="CockTailsIngredientsModel.FK_CocktailNoAlcohol_NoAlcohol" FromRole="NoAlcohol" ToRole="CocktailNoAlcohol" />
+        </EntityType>
+        <EntityType Name="Process">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CockTails" Relationship="CockTailsIngredientsModel.CocktailProcess" FromRole="Process" ToRole="CockTail" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_CockTail_Glass">
+          <End Role="Glass" Type="CockTailsIngredientsModel.Glass" Multiplicity="0..1" />
+          <End Role="CockTail" Type="CockTailsIngredientsModel.CockTail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Glass">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CockTail">
+              <PropertyRef Name="GlassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailCordial_CockTail">
+          <End Role="CockTail" Type="CockTailsIngredientsModel.CockTail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CocktailCordial" Type="CockTailsIngredientsModel.CocktailCordial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CockTail">
+              <PropertyRef Name="CocktailId" />
+            </Principal>
+            <Dependent Role="CocktailCordial">
+              <PropertyRef Name="CocktailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailLiquor_CockTail">
+          <End Role="CockTail" Type="CockTailsIngredientsModel.CockTail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CocktailLiquor" Type="CockTailsIngredientsModel.CocktailLiquor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CockTail">
+              <PropertyRef Name="CocktailId" />
+            </Principal>
+            <Dependent Role="CocktailLiquor">
+              <PropertyRef Name="CocktailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailNoAlcohol_CockTail">
+          <End Role="CockTail" Type="CockTailsIngredientsModel.CockTail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CocktailNoAlcohol" Type="CockTailsIngredientsModel.CocktailNoAlcohol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CockTail">
+              <PropertyRef Name="CocktailId" />
+            </Principal>
+            <Dependent Role="CocktailNoAlcohol">
+              <PropertyRef Name="CocktailId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailCordial_Cordial">
+          <End Role="Cordial" Type="CockTailsIngredientsModel.Cordial" Multiplicity="1" />
+          <End Role="CocktailCordial" Type="CockTailsIngredientsModel.CocktailCordial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cordial">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CocktailCordial">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailLiquor_Liquor">
+          <End Role="Liquor" Type="CockTailsIngredientsModel.Liquor" Multiplicity="1" />
+          <End Role="CocktailLiquor" Type="CockTailsIngredientsModel.CocktailLiquor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Liquor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CocktailLiquor">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CocktailNoAlcohol_NoAlcohol">
+          <End Role="NoAlcohol" Type="CockTailsIngredientsModel.NoAlcohol" Multiplicity="1" />
+          <End Role="CocktailNoAlcohol" Type="CockTailsIngredientsModel.CocktailNoAlcohol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NoAlcohol">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CocktailNoAlcohol">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CocktailGarnish">
+          <End Role="CockTail" Type="CockTailsIngredientsModel.CockTail" Multiplicity="*" />
+          <End Role="Garnish" Type="CockTailsIngredientsModel.Garnish" Multiplicity="*" />
+        </Association>
+        <EntityType Name="UserUsage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateTimeUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CocktailId" Type="Int64" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="CocktailProcess">
+          <End Type="CockTailsIngredientsModel.CockTail" Role="CockTail" Multiplicity="*" />
+          <End Type="CockTailsIngredientsModel.Process" Role="Process" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CockTails" Relationship="CockTailsIngredientsModel.FK__CockTail__Catego__5E8A0973" FromRole="Category" ToRole="CockTail" />
+        </EntityType>
+        <Association Name="FK__CockTail__Catego__5E8A0973">
+          <End Type="CockTailsIngredientsModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="CockTailsIngredientsModel.CockTail" Role="CockTail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CockTail">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CockTailsIngredientsModelStoreContainer" CdmEntityContainer="CockTailsIngredientsEntities">
+          <EntitySetMapping Name="CockTails">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.CockTail">
+              <MappingFragment StoreEntitySet="CockTail">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CocktailId" ColumnName="CocktailId" />
+                <ScalarProperty Name="GlassId" ColumnName="GlassId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CocktailCordials">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.CocktailCordial">
+              <MappingFragment StoreEntitySet="CocktailCordial">
+                <ScalarProperty Name="CocktailId" ColumnName="CocktailId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CocktailLiquors">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.CocktailLiquor">
+              <MappingFragment StoreEntitySet="CocktailLiquor">
+                <ScalarProperty Name="CocktailId" ColumnName="CocktailId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CocktailNoAlcohols">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.CocktailNoAlcohol">
+              <MappingFragment StoreEntitySet="CocktailNoAlcohol">
+                <ScalarProperty Name="CocktailId" ColumnName="CocktailId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cordials">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.Cordial">
+              <MappingFragment StoreEntitySet="Cordial">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Garnishes">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.Garnish">
+              <MappingFragment StoreEntitySet="Garnish">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Glasses">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.Glass">
+              <MappingFragment StoreEntitySet="Glass">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Liquors">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.Liquor">
+              <MappingFragment StoreEntitySet="Liquor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoAlcohols">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.NoAlcohol">
+              <MappingFragment StoreEntitySet="NoAlcohol">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Processes">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.Process">
+              <MappingFragment StoreEntitySet="Process">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CocktailGarnish" TypeName="CockTailsIngredientsModel.CocktailGarnish" StoreEntitySet="CocktailGarnish">
+            <EndProperty Name="CockTail">
+              <ScalarProperty Name="CocktailId" ColumnName="CocktailId" />
+            </EndProperty>
+            <EndProperty Name="Garnish">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="UserUsages">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.UserUsage">
+              <MappingFragment StoreEntitySet="UserUsage">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CocktailId" ColumnName="CocktailId" />
+                <ScalarProperty Name="dateTimeUpdate" ColumnName="dateTimeUpdate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CocktailProcess" TypeName="CockTailsIngredientsModel.CocktailProcess" StoreEntitySet="CocktailProcess">
+            <EndProperty Name="Process">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="CockTail">
+              <ScalarProperty Name="CocktailId" ColumnName="CocktailId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="CockTailsIngredientsModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

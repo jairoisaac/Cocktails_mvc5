@@ -1,0 +1,36 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div data-role="navbar" data-theme="b">
+        <ul>
+            @*<text>*@
+            @*Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "ui-btn ui-btn-inline", title = "Manage"})!*@
+            @*<div style="float:left">*@
+            <li>@Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage", data_role = "button" })</li>
+            @*</div>*@
+
+            @*<div style="float:left">*@
+            <li>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @*<a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>*@
+                    @*<a href="javascript:document.getElementById('logoutForm').submit()" data-role="button" class="ui-btn ui-btn-inline">Log off</a>*@
+                    <a href="javascript:document.getElementById('logoutForm').submit()" data-role="button">Log off</a>
+                }
+            </li>
+            @*</div>*@
+            @*</text>*@
+        </ul>
+    </div>
+}
+else
+{
+        <div data-role="navbar" data-theme="b">
+            <ul> 
+                <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                @*        the above line for register the account which is not convenient*@
+                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            </ul>
+        </div>
+        }
+        @*<a href="~/Views/Shared/_LoginPartial.cshtml">~/Views/Shared/_LoginPartial.cshtml</a>*@

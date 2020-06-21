@@ -1,0 +1,92 @@
+﻿@model Cocktails07.Models.CocktaiIngredients
+
+@{
+    ViewBag.Title = "Create Cocktail";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>CockTail</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+               <table>
+        <tbody>
+    <tr>
+        <td>
+            Liquors:
+        </td>
+        <td>
+            @Html.ListBox("Liquors")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            No Alcohols:
+        </td>
+        <td>
+            @Html.ListBox("NoAlcohols")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Cordials:
+        </td>
+        <td>
+            @Html.ListBox("Cordials")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Garnishes:
+        </td>
+        <td>
+            @Html.ListBox("Garnishes")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Glasess:
+        </td>
+        <td>
+            @Html.DropDownList("Glass")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Procesess:
+        </td>
+        <td>
+            @Html.DropDownList("Process")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Categories:
+        </td>
+        <td>
+            @Html.DropDownList("Categories")
+        </td>
+    </tr>
+            </tbody>
+        </table>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

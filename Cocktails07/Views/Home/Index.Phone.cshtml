@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Cocktails07.Models.component>
+@{
+    ViewBag.Title = "Basic Cocktails";
+    //Layout = "../Shared/_Layout.Phone.cshtml";
+}
+<head title="Todos los Cockteles">
+    <style type="text/css">
+        .Table {
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .Title {
+            display: table-caption;
+            text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+
+
+        .Row {
+            display: table-row;
+        }
+
+        .Cell {
+            display: table-cell;
+            border: none;
+            /*border: solid;
+            border-width: thin;
+            /*padding-left: 1px;
+            padding-right: 1px;*/
+        }
+    </style>
+</head>
+
+@*@section featured {
+        <section class="featured">
+            <div class="content-wrapper">
+                <hgroup class="title">
+                    <h1>@ViewBag.Title.</h1>
+                    <h2>@ViewBag.Message</h2>
+                </hgroup>
+            </div>
+        </section>
+    }*@
+@*<h2>Basic Cocktails</h2>*@
+@*<h4>@ViewBag.Message0</h4>*@
+<table class="center">
+    <tr>
+        <td colspan="2"><h2>Basic Cocktails</h2></td>
+        <td>@Html.ActionImage("/Images/Liquors_bigger.png", "Liquors", null, "IndexComponent", "Liquor", null)</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+        <td>By Liquors</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionImage("/Images/Cordials_bigger.png", "Liquors", null, "IndexComponent", "Cordial", null)</td>
+        <td>@Html.ActionImage("/Images/NoAlcohols_bigger.png", "Liquors", null, "IndexComponent", "NoAlcohol", null)</td>
+        <td>@Html.ActionImage("/Images/Garnishes_bigger.png", "Liquors", null, "IndexComponent", "Garnish", null)</td>
+    </tr>
+    <tr>
+        <td>By Cordials</td>
+        <td>By Complements</td>
+        <td>By Garnishes</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionImage("/Images/Glasses_bigger.png", "Liquors", null, "IndexComponent", "Glass", null)</td>
+        <td>@Html.ActionImage("/Images/Processes_bigger.png", "Liquors", null, "IndexComponent", "Process", null)</td>
+        <td>
+            @Html.ActionImage("/Images/TipJar.png", "Tip developer", null, "Index", "Paypal", null)
+        </td>
+    </tr>
+    <tr>
+        <td>By Glasses</td>
+        <td>By Ritual</td>
+        <td>Tip Jar</td>
+    </tr>
+</table>
+@Html.TableAllCocktails(Model.ToList(), 1)

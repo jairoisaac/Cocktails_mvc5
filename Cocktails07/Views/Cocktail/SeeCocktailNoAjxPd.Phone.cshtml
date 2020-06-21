@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Cocktails07.Models.Ingredient>
+
+@{
+    Layout = "~/Views/Shared/_Layout.Phone.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.TableCocktail("Wath ever", Model.ToList(), "xxx", "feauture", 3)
+@*<a href="/home/">Back</a>*@
+@*<a href="javascript:history.back()" >Back to List</a>*@
+
+
+<a class="mylink ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all" data-role="button" href="javascript:history.back()" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="b">
+    Back to List
+</a>

@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Cocktails07.Models.Ingredient>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.TableCocktail("Wath ever", Model.ToList(), "xxx", "feauture", 6)
+@*<a href="/home/">Back</a>*@
+<a href="javascript:history.back()">Back to List</a>

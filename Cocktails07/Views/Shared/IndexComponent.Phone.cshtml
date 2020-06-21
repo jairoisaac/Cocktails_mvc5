@@ -1,0 +1,6 @@
+﻿@model IEnumerable<Cocktails07.Models.component>
+    <h1>Choose a @ViewBag.Title and get its cocktails</h1>
+@{
+    string mmControl = ViewBag.myControl;
+    @Html.TableImage("Whatever", Model.ToList(), mmControl, "xxx",null ,3)      
+}

@@ -1,0 +1,86 @@
+﻿
+
+@{
+    ViewBag.Title = "Professional";
+}
+
+@*@model Cocktails07.Models.CocktailSumary
+
+    @{
+        ViewBag.Title = "Details";
+    }
+    <script type="text/javascript">
+        $(function () {
+            var mCocktailId = "";
+            mCocktailId = $('#Cocktails option:selected').val();
+            var myGetit = new GetACock(mCocktailId);
+            myGetit.GetIt;
+            $('#Cocktails').change(function () {
+                mCocktailId = $('#Cocktails option:selected').val();
+                var myGetit = new GetACock(mCocktailId);
+                myGetit.GetIt;
+             });
+        });
+    </script>*@
+<head title="Proffesional Vs Regular Edition">
+    <style type="text/css">
+        .Table {
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .Title {
+            display: table-caption;
+            text-align: center;
+            font-weight: bold;
+            font-size: larger;
+        }
+
+
+        .Row {
+            display: table-row;
+        }
+
+        .Cell {
+            display: table-cell;
+            /*border: solid;*/
+            border: solid;
+            border-width: thin;
+            padding-left: 1px;
+            padding-right: 1px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+@*<div id="centerdiv">
+        <h2>Regular Vs Professional Edition</h2>
+    </div>*@
+<div class="Table">
+    <div class="Row">
+        <div class="Cell"><img src="~/Images/CocktailNoProfessionaPC.png" alt="No Proffesional Cocktail" style="width:654px;height:248px;" /></div>
+    </div>
+    @*<div class="Cell"><img src="~/Images/CompareProffesionalEdition.png" alt="Compare Editions" /></div>*@
+    <div class="Row">
+        <div class="Cell"><img src="~/Images/CocktailProfessionaPC.png" alt="Proffesional Cocktail" style="width:737px;height:327px;" /></div>
+    </div>
+    <div class="Row">
+        <div class="Cell"><img src="~/Images/LiquorsNoProfessionalPC.png" alt="No Proffesional Ingredient" style="width:914px;height:293px;" /></div>
+    </div>
+
+    @*<div class="Cell"><img src="~/Images/CompareProffesionalEdition1.png" alt="Compare Editions" /></div>*@
+    <div class="Row">
+        <div class="Cell"><img src="~/Images/LiquorsProfessionalPC.png" alt="Proffesional Ingredient" style="width:936px;height:352px;" /></div>
+    </div>
+    
+</div>
+
+
+@*<div class="display-field">
+           @Html.DropDownList("Cocktails")
+       </div>
+    <div id="CockDescription"></div>
+        <div id="CockDescription" style="position:absolute; top:110px;left:650px;"></div>
+        <div id="CockDescription" style="position:absolute; top:250px;left:400px;"></div>*@

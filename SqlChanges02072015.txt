@@ -1,0 +1,29 @@
+- make the rolles, that's it
+- make the roll of administrator.
+
+- Insert rolles:	Administrator
+			NoPayed
+			Payed
+
+- Insert Administrator roll for jairomillan user.
+	- Check table UserProfile
+	- insert on table UserInRoles
+
+
+ INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
+VALUES ('Cardinal','Tom B. Erichsen','Skagen 21','Stavanger','4006','Norway');
+
+INSERT INTO webpages_Roles (RoleName)
+VALUES ('Administrator'),('NoPayed'),('Payed')
+
+UserId RoleId
+
+INSERT INTO webpages_UsersInRoles (UserId,RoleId)
+VALUES (1,1);
+
+
+-Create a new user with the program,
+-Check user id
+-Insert UserId and RoleId on webpages_UsersInRoles.
+- Test the user. 
+

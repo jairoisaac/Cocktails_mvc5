@@ -1,0 +1,76 @@
+CREATE TABLE [dbo].[CocktailProcess] (
+    [CocktailId] BIGINT NOT NULL,
+    [Id]         BIGINT NOT NULL,
+    CONSTRAINT [PK_CocktailProcess_1] PRIMARY KEY CLUSTERED ([CocktailId] ASC, [Id] ASC),
+    CONSTRAINT [FK_CocktailProcess_Process] FOREIGN KEY ([Id]) REFERENCES [dbo].[Process] ([Id]),
+    CONSTRAINT [FK_CocktailProcess_CockTail] FOREIGN KEY ([CocktailId]) REFERENCES [dbo].[CockTail] ([CocktailId]) ON DELETE CASCADE
+);
+
+
+ALTER TABLE CockTail DROP CONSTRAINT FK_CockTail_Process
+
+ALTER TABLE CockTail
+DROP COLUMN  ProcessId
+
+
+UPDATE Process
+SET Name = 'Muddle'
+WHERE Id = 2;
+
+UPDATE Process
+SET Name = 'Stirr'
+WHERE Id = 5;
+
+UPDATE Process
+SET Name = 'Shake'
+WHERE Name='Shaking';
+
+UPDATE Process
+SET Name = 'Strain'
+WHERE Name='Straining';
+
+
+
+INSERT INTO CocktailProcess (CocktailId, Id)
+VALUES (22,3),
+(24,3),
+(26,3),
+(28,3),
+(30,3),
+(32,3),
+(40,2),
+(40,3),
+(45,3),
+(45,4),
+(46,3),
+(46,4),
+(47,3),
+(47,4),
+(48,3),
+(48,4),
+(49,3),
+(49,4),
+(50,3),
+(50,4),
+(51,3),
+(51,4),
+(117,3),
+(117,4),
+(118,3),
+(118,4)
+
+
+
+RENAME IMAGES Accordinly Shaking for Shake, Straining for Strain
+
+Download Muddle_bigger.png
+
+Stirr_Strain_bigger.png ==> change to Strain_Bigger.png
+Straining_bigger.png ==> erase 
+Shaking_bigger.png ==> change to Shake_bigger.png
+Pouring_bigger.png ==> change to Pour_bigger.png
+Stirring_bigger.png ==> change to Stirr_bigger.png
+
+
+
+30 y 31

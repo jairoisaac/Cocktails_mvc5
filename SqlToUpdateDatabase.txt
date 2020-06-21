@@ -1,0 +1,25 @@
+CREATE TABLE [dbo].[Category] (
+    [Id]   BIGINT        IDENTITY (1, 1) NOT NULL,
+    [Name] NVARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+ALTER TABLE Cocktail
+ADD FOREIGN KEY (CategoryId)
+REFERENCES Category(Id)
+
+ALTER TABLE table_name
+ADD column_name datatype
+
+ALTER TABLE Cocktail
+ADD CategoryId BIGINT
+
+UPDATE Cocktail
+SET CategoryId=1
+
+CREATE TABLE [dbo].[Category] (
+    [Id]   BIGINT        IDENTITY (1, 1) NOT NULL,
+    [Name] NVARCHAR (50) NOT NULL,
+    CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED ([Id] ASC)
+);

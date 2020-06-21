@@ -1,0 +1,2 @@
+Cocktails074 has the latest development but still has the different sizes of the images bigger, normal and small.
+This version Cocktails075 has only images bigger and not normal nor small.

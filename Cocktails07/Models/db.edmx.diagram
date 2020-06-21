@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d477db09a68f4dbf9883bdbfa76b0466" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.CockTail" Width="1.5" PointX="3.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.CocktailCordial" Width="1.5" PointX="5.375" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.CocktailLiquor" Width="1.5" PointX="5.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.CocktailNoAlcohol" Width="1.5" PointX="0.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.Cordial" Width="1.5" PointX="7.625" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.Garnish" Width="1.5" PointX="7.625" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.Glass" Width="1.5" PointX="0.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.Liquor" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.NoAlcohol" Width="1.5" PointX="3.125" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.Process" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.sysdiagram" Width="1.5" PointX="7.625" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="CockTailsIngredientsModel.FK_CockTail_Glass" ManuallyRouted="false" />
+        <AssociationConnector Association="CockTailsIngredientsModel.FK_CocktailCordial_CockTail" ManuallyRouted="false" />
+        <AssociationConnector Association="CockTailsIngredientsModel.FK_CocktailLiquor_CockTail" ManuallyRouted="false" />
+        <AssociationConnector Association="CockTailsIngredientsModel.FK_CocktailNoAlcohol_CockTail" ManuallyRouted="false" />
+        <AssociationConnector Association="CockTailsIngredientsModel.FK_CocktailCordial_Cordial" ManuallyRouted="false" />
+        <AssociationConnector Association="CockTailsIngredientsModel.FK_CocktailLiquor_Liquor" ManuallyRouted="false" />
+        <AssociationConnector Association="CockTailsIngredientsModel.FK_CocktailNoAlcohol_NoAlcohol" ManuallyRouted="false" />
+        <AssociationConnector Association="CockTailsIngredientsModel.CocktailGarnish" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.UserUsage" Width="1.5" PointX="5.375" PointY="6.75" />
+        <AssociationConnector Association="CockTailsIngredientsModel.CocktailProcess" />
+        <EntityTypeShape EntityType="CockTailsIngredientsModel.Category" Width="1.5" PointX="1.125" PointY="1.875" />
+        <AssociationConnector Association="CockTailsIngredientsModel.FK__CockTail__Catego__5E8A0973" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,3 @@
+﻿ALTER TABLE Cocktail
+ADD FOREIGN KEY (CategoryId)
+REFERENCES Category(Id)

@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Basic Cocktails";
+}
+@using (Html.BeginForm("ValidateCommand", "PayPal"))
+{
+    <div class="form-group">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active">
+                @Html.RadioButton("totalPrice", "2.00") $ 2.00
+            </label>
+            <label class="btn btn-primary">
+                @Html.RadioButton("totalPrice", "5.00") $ 5.00
+            </label>
+            <label class="btn btn-primary">
+                @Html.RadioButton("totalPrice", "10.00") $ 10.00
+            </label>
+        </div>
+        @*<input type="submit" name="btnConfirm" value="Check Out with Paypal"  />*@
+-    </div>
+    <div>
+        @Html.Hidden("product","Tip for drinks4bars")
+        @*<input type="text" name="product" value="Tip for developer" readonly />*@
+        <input type="image" src="~/Images/paypal.gif" alt="Submit">
+    </div>
+    
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Tip for drinks4bars</h2>
+                @*<h3>@ViewBag.Message0</h3>*@
+            </hgroup>
+        </div>
+    </section>
+}
+<br />
+<br />
+<div>... Give, and it will be given to you.</div>

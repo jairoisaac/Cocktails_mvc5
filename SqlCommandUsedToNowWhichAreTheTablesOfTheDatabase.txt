@@ -1,0 +1,5 @@
+SELECT name FROM sysobjects WHERE type='U' 
+
+UPDATE Category
+SET CategoryId = 1
+

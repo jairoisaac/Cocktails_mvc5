@@ -1,0 +1,43 @@
+﻿@model Cocktails07.Models.IngredientItsCocktails
+
+<head title="Details">
+<style type="text/css">
+    .Table {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .Title {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+    }
+
+
+    .Row {
+        display: table-row;
+    }
+
+    .Cell {
+        display: table-cell;
+        /*border: solid;*/
+        border-width: thin;
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+</style>
+</head>
+
+<h1>@ViewBag.Details</h1>
+       @*<img src="@Url.MyPictureContent(Model.Name,"bigger")" alt="" width="109" height="109" />*@
+              @Html.TableAllCocktails(Model.ItsCocktails.ToList(), 8)
+
+
+<p>
+    @Html.ActionLink("Back to List", "IndexComponent")
+</p>
+@*<div id="CockDescription" style="position:absolute; top:110px;left:650px;"></div>
+<div id="CockDescription" style="position:absolute; top:250px;left:500px;"></div>
+<div id="CockDescription" style="position:absolute; top:250px;left:350px"></div>*@
