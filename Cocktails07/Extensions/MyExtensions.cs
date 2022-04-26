@@ -117,9 +117,8 @@ public static class MyExtensions
         }
         StringBuilder sb = new StringBuilder();
         sb.AppendLine("\t<tr>");
-        //int i = 0;
-        int i = 1;
-        foreach (var item in items)
+       int i = 1;
+       foreach (var item in items)
         {
             //string imagePath = "~/Images/" + item.Name + "_bigger.png";
             string imagePath = "/Images/" + item.Name + "_bigger.png";
@@ -359,7 +358,7 @@ public static class MyExtensions
         foreach (var item in items)
         {
 
-            var anchorTagBuilder = new TagBuilder("a"); // build the <a> tag    
+            var anchorTagBuilder = new TagBuilder("a"); // build the <a> tag
             anchorTagBuilder.MergeAttribute("href", "/Cocktail/SeeCocktailNoAjx/" + item.Id.ToString());
             anchorTagBuilder.MergeAttribute("class", "mylink");
             anchorTagBuilder.MergeAttribute("data-role", "button");

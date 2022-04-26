@@ -26,8 +26,6 @@ namespace Cocktails07.Controllers
 
         public ActionResult RedirectFromPaypal()
         {
-            Roles.RemoveUserFromRole(User.Identity.Name, "NoPayed");
-            Roles.AddUserToRole(User.Identity.Name, "Payed");
             return View();
         }
         public ActionResult CancelFromPaypal()
@@ -38,7 +36,7 @@ namespace Cocktails07.Controllers
         {
             return View();
         }
-        [Authorize]
+        //[Authorize]
         public ActionResult ValidateCommand(string product, string totalPrice)
         {
             bool useSandbox = Convert.ToBoolean(ConfigurationManager.AppSettings["IsSandbox"]);

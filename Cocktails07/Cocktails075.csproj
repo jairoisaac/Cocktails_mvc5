@@ -455,6 +455,7 @@
     <None Include="Properties\PublishProfiles\bardrinks - Web Deploy %284%29.pubxml" />
     <None Include="Properties\PublishProfiles\bardrinks - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\cocktails00.pubxml" />
+    <None Include="Properties\PublishProfiles\drinks4bars - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -478,12 +479,15 @@
     <Content Include="RemoveFromSiteCss.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />

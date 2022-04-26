@@ -11,9 +11,11 @@ namespace Cocktails07.Controllers
 { 
     public class CocktailController : Controller
     {
+        
         private CockTailsIngredientsEntities db = new CockTailsIngredientsEntities();
         private Models.CocktailSumary MyCocktailSumary = new Models.CocktailSumary();
         private Models.CocktaiIngredients MyCoctailIngredient = new Models.CocktaiIngredients();
+
         //
         // GET: /Cocktail/
 
