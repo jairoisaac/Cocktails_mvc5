@@ -451,12 +451,16 @@ namespace Cocktails07.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-        public ActionResult SeeCocktailNoAjx(long id)
+        [HttpGet]
+        [Route("Cocktail/{name}")]
+        public ActionResult SeeCocktailNoAjx(string name)
         {
-            CockTail cocktail = db.CockTails.Find(id);
-            ViewBag.Title = cocktail.Name;
+            name = name.Replace("_", " ");
+            CockTail cockTail = db.CockTails.Where(c => c.Name == name).FirstOrDefault();
+            //CockTail cocktail = db.CockTails.Find(id);
+            long id = cockTail.CocktailId;
+            ViewBag.Title = cockTail.Name;
             return View("SeeCocktailNoAjxPd",GetRecipe(id));
         }
-
     }
 }

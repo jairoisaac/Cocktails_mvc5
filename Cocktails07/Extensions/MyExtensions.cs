@@ -357,9 +357,12 @@ public static class MyExtensions
         int i = 1;
         foreach (var item in items)
         {
-
+            var name = item.Name;
+            name = name.Replace(" ", "_");
             var anchorTagBuilder = new TagBuilder("a"); // build the <a> tag
-            anchorTagBuilder.MergeAttribute("href", "/Cocktail/SeeCocktailNoAjx/" + item.Id.ToString());
+            //anchorTagBuilder.MergeAttribute("href", "/Cocktail/SeeCocktailNoAjx/" + item.Id.ToString());
+
+            anchorTagBuilder.MergeAttribute("href", "/Cocktail/"+name);
             anchorTagBuilder.MergeAttribute("class", "mylink");
             anchorTagBuilder.MergeAttribute("data-role", "button");
             anchorTagBuilder.InnerHtml = item.Name.Replace("_", " "); // include the <img> tag inside
