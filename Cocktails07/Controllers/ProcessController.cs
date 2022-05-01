@@ -25,6 +25,7 @@ namespace Cocktails07.Controllers
         {
             return View(db.Processes.ToList());
         }
+        [Route("Rituals")]
         public ViewResult IndexComponent()
         {
             List<component> myComponents = new List<component>();

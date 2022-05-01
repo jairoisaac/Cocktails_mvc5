@@ -25,7 +25,7 @@ namespace Cocktails07.Controllers
         {
             return View(db.Garnishes.ToList());
         }
-
+        [Route("Garnishes")]
         public ViewResult IndexComponent()
         {
             List<component> myComponents = new List<component>();

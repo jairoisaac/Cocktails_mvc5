@@ -23,7 +23,7 @@ namespace Cocktails07.Controllers
         {
             return View(db.NoAlcohols.ToList());
         }
-
+        [Route("Complements")]
         public ViewResult IndexComponent()
         {
             List<component> myComponents = new List<component>();

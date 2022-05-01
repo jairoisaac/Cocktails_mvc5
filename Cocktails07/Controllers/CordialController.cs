@@ -24,7 +24,7 @@ namespace Cocktails07.Controllers
         {
             return View(db.Cordials.ToList());
         }
-     
+        [Route("Cordials")]
         public ViewResult IndexComponent()
         {
             List<component> myComponents = new List<component>();
